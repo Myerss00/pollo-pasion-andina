@@ -8,9 +8,10 @@
         /* Estilos generales */
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             background-color: #f5f5dc; /* Beige */
             color: #333;
+            line-height: 1.6;
         }
 
         header {
@@ -49,7 +50,7 @@
         }
 
         .hero {
-            background-image: url('https://via.placeholder.com/1200x400'); /* Imagen de fondo */
+            background-image: url('https://images.unsplash.com/photo-1600804340584-c7db2eacf1fc'); /* Imagen de fondo */
             background-size: cover;
             background-position: center;
             height: 400px;
@@ -86,6 +87,11 @@
             padding: 15px;
             text-align: center;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05);
         }
 
         .menu-item img {
@@ -93,6 +99,43 @@
             height: 150px;
             object-fit: cover;
             border-radius: 8px;
+        }
+
+        .contact-section {
+            background-color: #c70039; /* Rojo pasión */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            background-color: #a3002f; /* Rojo oscuro */
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #800023;
         }
 
         footer {
@@ -106,6 +149,17 @@
         footer p {
             margin: 0;
             font-size: 0.9em;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .hero h2 {
+                font-size: 2em;
+            }
         }
     </style>
 </head>
@@ -135,21 +189,31 @@
             <h2 style="text-align: center; color: #c70039;">Nuestro Menú</h2>
             <div class="menu-section">
                 <div class="menu-item">
-                    <img src="https://via.placeholder.com/300x150" alt="Pollo a la Brasa">
+                    <img src="https://images.unsplash.com/photo-1599038079193-8d13c7e7b3c4" alt="Pollo a la Brasa">
                     <h3>Pollo a la Brasa</h3>
                     <p>Jugoso pollo marinado con especias peruanas.</p>
                 </div>
                 <div class="menu-item">
-                    <img src="https://via.placeholder.com/300x150" alt="Papa a la Huancaína">
+                    <img src="https://images.unsplash.com/photo-1598732571851-0f9760e1e417" alt="Papa a la Huancaína">
                     <h3>Papa a la Huancaína</h3>
                     <p>Papas sancochadas con salsa cremosa de ají amarillo.</p>
                 </div>
                 <div class="menu-item">
-                    <img src="https://via.placeholder.com/300x150" alt="Chicha Morada">
+                    <img src="https://images.unsplash.com/photo-1587727302082-7d68027905a6" alt="Chicha Morada">
                     <h3>Chicha Morada</h3>
                     <p>Bebida tradicional peruana hecha a base de maíz morado.</p>
                 </div>
             </div>
+        </section>
+
+        <section id="contacto" class="contact-section">
+            <h2>Contacto</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Nombre" required>
+                <input type="email" placeholder="Correo electrónico" required>
+                <textarea placeholder="Mensaje" rows="5" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
         </section>
     </div>
 
