@@ -14,11 +14,13 @@
             line-height: 1.6;
         }
 
+        /* Encabezado */
         header {
             background-color: #c70039; /* Rojo pasión */
             color: white;
             padding: 20px 10px;
             text-align: center;
+            position: relative;
         }
 
         header h1 {
@@ -27,6 +29,22 @@
             font-weight: bold;
         }
 
+        header p {
+            margin: 5px 0 0;
+            font-size: 1.2em;
+        }
+
+        /* Franjas andinas */
+        .andean-stripes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(45deg, #ffde59, #ffffff, #008037);
+        }
+
+        /* Navegación */
         nav {
             background-color: #a3002f; /* Rojo oscuro */
             padding: 10px;
@@ -44,6 +62,7 @@
             text-decoration: underline;
         }
 
+        /* Hero principal */
         .hero {
             background-image: url('https://images.unsplash.com/photo-1600804340584-c7db2eacf1fc'); /* Imagen de fondo */
             background-size: cover;
@@ -54,19 +73,33 @@
             justify-content: center;
             color: white;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(200, 0, 57, 0.5); /* Filtro rojo */
         }
 
         .hero h2 {
             font-size: 3em;
             font-weight: bold;
+            z-index: 1;
         }
 
+        /* Contenido principal */
         .content {
             padding: 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
+        /* Menú */
         .menu-section {
             display: flex;
             flex-wrap: wrap;
@@ -112,6 +145,38 @@
             font-weight: bold;
         }
 
+        /* Promociones */
+        .promotions {
+            background-color: #f5f5dc; /* Beige */
+            padding: 20px;
+            text-align: center;
+        }
+
+        .promotions h2 {
+            color: #c70039;
+        }
+
+        .promotion-item {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px auto;
+            max-width: 400px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .promotion-item h3 {
+            font-size: 1.5em;
+            color: #c70039;
+        }
+
+        .promotion-item p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        /* Footer */
         footer {
             background-color: #c70039; /* Rojo pasión */
             color: white;
@@ -141,6 +206,7 @@
 
     <!-- Header -->
     <header>
+        <div class="andean-stripes"></div>
         <h1>Pollos Pasión Andina</h1>
         <p>El auténtico sabor peruano</p>
     </header>
@@ -149,6 +215,7 @@
     <nav>
         <a href="#inicio">Inicio</a>
         <a href="#menu">Menú</a>
+        <a href="#promociones">Promociones</a>
         <a href="#contacto">Contacto</a>
     </nav>
 
@@ -181,56 +248,25 @@
                     <p>Cuarto de pollo perfecto para una persona.</p>
                     <span>S/. 12.00</span>
                 </div>
+            </div>
+        </section>
 
-                <!-- Alitas y Chicken Fingers -->
-                <div class="menu-item">
-                    <img src="https://via.placeholder.com/300x150" alt="6 Pack Alitas">
-                    <h3>6 Pack de Alitas a la Brasa</h3>
-                    <p>Alitas crujientes y sabrosas.</p>
-                    <span>S/. 18.00</span>
-                </div>
-                <div class="menu-item">
-                    <img src="https://via.placeholder.com/300x150" alt="Chicken Fingers">
-                    <h3>6 Pack Chicken Fingers</h3>
-                    <p>Tiras de pollo empanizadas y doradas.</p>
-                    <span>S/. 15.00</span>
-                </div>
-
-                <!-- Bebidas -->
-                <div class="menu-item">
-                    <img src="https://via.placeholder.com/300x150" alt="Inka Cola 3L">
-                    <h3>3L Inka Cola</h3>
-                    <p>Refresco peruano icónico.</p>
-                    <span>S/. 10.00</span>
-                </div>
-                <div class="menu-item">
-                    <img src="https://via.placeholder.com/300x150" alt="Chicha Morada 3L">
-                    <h3>3L Chicha Morada</h3>
-                    <p>Bebida tradicional peruana de maíz morado.</p>
-                    <span>S/. 8.00</span>
-                </div>
-
-                <!-- Parrillas -->
-                <div class="menu-item">
-                    <img src="https://via.placeholder.com/300x150" alt="Parrilla para 4">
-                    <h3>Parrilla para 4</h3>
-                    <p>Ideal para reuniones pequeñas.</p>
-                    <span>S/. 50.00</span>
-                </div>
-                <div class="menu-item">
-                    <img src="https://via.placeholder.com/300x150" alt="Parrilla para 6">
-                    <h3>Parrilla para 6</h3>
-                    <p>Perfecta para celebraciones familiares.</p>
-                    <span>S/. 70.00</span>
-                </div>
-
-                <!-- Anticuchos -->
-                <div class="menu-item">
-                    <img src="https://via.placeholder.com/300x150" alt="Anticuchos">
-                    <h3>Anticuchos</h3>
-                    <p>Brochetas de corazón de res marinadas.</p>
-                    <span>S/. 15.00</span>
-                </div>
+        <section id="promociones" class="promotions">
+            <h2>Promociones Familiares</h2>
+            <div class="promotion-item">
+                <h3>Combo Familiar 1</h3>
+                <p>1 Pollo entero + 2 bebidas de 1.5L + Papas fritas.</p>
+                <p><strong>S/. 50.00</strong></p>
+            </div>
+            <div class="promotion-item">
+                <h3>Combo Familiar 2</h3>
+                <p>2 Pollos enteros + 4 bebidas de 1.5L + Ensalada fresca.</p>
+                <p><strong>S/. 90.00</strong></p>
+            </div>
+            <div class="promotion-item">
+                <h3>Combo Especial</h3>
+                <p>1 Parrilla para 4 personas + Chicha morada + Postre típico.</p>
+                <p><strong>S/. 75.00</strong></p>
             </div>
         </section>
     </div>
