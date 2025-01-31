@@ -3,29 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fuego y Pasión - El auténtico sabor peruano</title>
+    <title>Ochenta Brasas - El fuego cobra vida</title>
     <style>
         /* Estilos generales */
         body {
             margin: 0;
-            font-family: 'Playfair Display', serif; /* Tipografía acogedora */
-            background-color: #FAF0E6; /* Blanco perla */
-            color: #333;
+            font-family: 'Arial', sans-serif;
+            background-color: #222; /* Fondo oscuro */
+            color: white;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Encabezado */
+        /* Cursor personalizado (efecto de brasas) */
+        body {
+            cursor: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Fire_Icon.svg/1200px-Fire_Icon.svg.png'), auto;
+        }
+
+        /* Header */
         header {
-            background-color: #8B0000; /* Color vino */
+            background-color: #111;
             color: white;
-            padding: 10px 10px; /* Más delgado */
+            padding: 10px;
             text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
         }
 
         header h1 {
+            font-size: 1.5em;
             margin: 0;
-            font-size: 2em; /* Tamaño reducido */
-            font-weight: bold;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -36,46 +46,20 @@
             display: inline-block;
             width: 30px;
             height: 30px;
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Fire_Icon.svg/1200px-Fire_Icon.svg.png'); /* Icono de fuego */
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Fire_Icon.svg/1200px-Fire_Icon.svg.png');
             background-size: cover;
             margin-right: 10px;
         }
 
-        header p {
-            margin: 0;
-            font-size: 0.9em; /* Slogan más pequeño */
-        }
-
-        /* Navegación */
-        nav {
-            background-color: #8B0000; /* Color vino */
-            padding: 5px; /* Más delgada */
-            text-align: center;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 0.9em; /* Tamaño reducido */
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
         /* Hero principal */
         .hero {
-            background-image: url('https://perubicentenario.com/wp-content/uploads/2021/06/31-1024x594.png'); /* Imagen de fondo */
-            background-size: cover;
-            background-position: center;
-            height: 300px; /* Altura reducida */
+            background: url('https://i.pinimg.com/originals/7f/8f/9f/7f8f9f8f8f8f8f8f8f8f8f8f8f8f8f8f.jpg') no-repeat center center/cover;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
-            background-attachment: fixed; /* Efecto paralaje */
         }
 
         .hero::before {
@@ -85,46 +69,69 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Fondo más opaco */
+            background: rgba(0, 0, 0, 0.7);
         }
 
         .hero h2 {
-            font-size: 2.5em; /* Tamaño reducido */
+            font-size: 3em;
             font-weight: bold;
             color: white;
             z-index: 1;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            animation: fadeIn 2s ease-in-out;
         }
 
-        /* Contenido principal */
-        .content {
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
-        /* Menú */
+        /* Botón principal */
+        .cta-button {
+            background-color: gold;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 165, 0, 0.8);
+        }
+
+        /* Menú interactivo */
         .menu-section {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
             justify-content: center;
+            padding: 20px;
+            background: url('https://i.pinimg.com/originals/7f/8f/9f/7f8f9f8f8f8f8f8f8f8f8f8f8f8f8f8f.jpg') no-repeat center center/cover;
         }
 
         .menu-item {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.1);
             border: 1px solid #ddd;
             border-radius: 8px;
             width: 300px;
             padding: 15px;
             text-align: center;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
         }
 
         .menu-item:hover {
-            transform: scale(1.05);
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 0 10px rgba(255, 165, 0, 0.8);
         }
 
         .menu-item img {
@@ -134,79 +141,35 @@
             border-radius: 8px;
         }
 
-        .menu-item span {
-            color: #8B0000; /* Color vino */
-            font-weight: bold;
-        }
-
-        /* Detalles emergentes */
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            color: #333;
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-        }
-
-        .popup.active {
-            display: block;
-        }
-
-        .popup .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #8B0000; /* Color vino */
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-
         /* Promociones */
         .promotions {
-            background-color: #FAF0E6; /* Blanco perla */
+            background-color: #111;
             padding: 20px;
             text-align: center;
-        }
-
-        .promotions h2 {
-            color: #8B0000; /* Color vino */
         }
 
         .promotion-item {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.1);
             border: 1px solid #ddd;
             border-radius: 8px;
             padding: 15px;
             margin: 10px auto;
             max-width: 400px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .promotion-item h3 {
-            font-size: 1.5em;
-            color: #8B0000; /* Color vino */
+        .promotion-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(255, 165, 0, 0.8);
         }
 
         /* Footer */
         footer {
-            background-color: #8B0000; /* Color vino */
+            background-color: #111;
             color: white;
             text-align: center;
-            padding: 10px; /* Más delgado */
+            padding: 10px;
             margin-top: 20px;
         }
 
@@ -215,38 +178,30 @@
             font-size: 0.9em;
         }
 
-        /* Botón flotante de WhatsApp */
-        .whatsapp-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: rgba(139, 0, 0, 0.7); /* Más transparente */
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%; /* Circular */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            text-decoration: none;
+        /* Animaciones adicionales */
+        @keyframes fireEffect {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
         }
 
-        .whatsapp-button img {
-            width: 30px;
-            height: 30px;
+        .fire-animation {
+            animation: fireEffect 2s infinite alternate;
         }
 
         /* Responsive design */
         @media (max-width: 768px) {
             header h1 {
-                font-size: 1.5em;
+                font-size: 1.2em;
             }
 
             .hero h2 {
-                font-size: 1.8em;
+                font-size: 2em;
             }
 
             nav a {
@@ -259,98 +214,70 @@
 
     <!-- Header -->
     <header>
-        <h1>Fuego y Pasión</h1>
-        <p>El auténtico sabor peruano en tu paladar</p>
+        <h1>Ochenta Brasas</h1>
     </header>
 
-    <!-- Navegación -->
-    <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#menu">Menú</a>
-        <a href="#promociones">Promociones</a>
-        <a href="#contacto">Contacto</a>
-    </nav>
+    <!-- Hero principal -->
+    <section class="hero">
+        <h2 class="fire-animation">🔥 Ochenta grados de perfección 🔥</h2>
+        <button class="cta-button">Haz tu pedido ahora</button>
+    </section>
 
-    <!-- Contenido de las secciones -->
-    <div id="inicio">
-        <section class="hero">
-            <h2>Fuego y Pasión: Tradición y Sabor</h2>
-        </section>
-    </div>
-
+    <!-- Menú interactivo -->
     <div id="menu">
         <div class="content">
-            <h2 style="text-align: center; color: #8B0000;">Nuestro Menú</h2>
+            <h2 style="text-align: center; color: gold;">Descubre el sabor</h2>
             <div class="menu-section">
                 <!-- Pollo a la brasa -->
-                <div class="menu-item" onclick="showPopup('Pollo Entero')">
+                <div class="menu-item">
                     <img src="https://imgmedia.buenazo.pe/1200x660/buenazo/original/2023/07/14/64ac3e8c599470217672a906.jpg" alt="Pollo Entero">
                     <h3>Pollo a la Brasa Entero</h3>
                     <p>Jugoso pollo marinado con especias peruanas.</p>
                     <span>S/. 55.00</span>
                 </div>
-                <div class="menu-item" onclick="showPopup('1/2 Pollo')">
+                <div class="menu-item">
                     <img src="https://carbonylena.net/wp-content/uploads/2021/01/POLLO-A-LA-BRASA-CON-PAPAS1-2.png" alt="1/2 Pollo">
                     <h3>1/2 Pollo a la Brasa</h3>
                     <p>Medio pollo jugoso y delicioso.</p>
                     <span>S/. 35.00</span>
                 </div>
-                <div class="menu-item" onclick="showPopup('1/4 Pollo')">
+                <div class="menu-item">
                     <img src="https://rikotonchicken.pe/wp-content/uploads/2022/10/015.png" alt="1/4 Pollo">
                     <h3>1/4 Pollo a la Brasa</h3>
                     <p>Cuarto de pollo perfecto para una persona.</p>
                     <span>S/. 22.00</span>
                 </div>
                 <!-- Alitas y Chicken Fingers -->
-                <div class="menu-item" onclick="showPopup('Alitas')">
+                <div class="menu-item">
                     <img src="https://i.ytimg.com/vi/_zMlTQ4eEjc/maxresdefault.jpg" alt="6 Pack Alitas">
                     <h3>6 Pack de Alitas a la Brasa</h3>
                     <p>Alitas crujientes y sabrosas.</p>
                     <span>S/. 22.00</span>
                 </div>
-                <div class="menu-item" onclick="showPopup('Chicken Fingers')">
+                <div class="menu-item">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7LhoBRmQ9cRlPcBqmcEcCNQvfUoJy9p79bQ&s" alt="Chicken Fingers">
                     <h3>6 Pack Chicken Fingers</h3>
                     <p>Tiras de pollo empanizadas y doradas.</p>
                     <span>S/. 22.00</span>
                 </div>
                 <!-- Bebidas -->
-                <div class="menu-item" onclick="showPopup('Inka Cola')">
+                <div class="menu-item">
                     <img src="https://static.wixstatic.com/media/43aac5_c045faa5a9ab4e8d89eefb23d6408c19~mv2.png/v1/fit/w_500,h_500,q_90/file.png" alt="Inka Cola 3L">
                     <h3>3L Inka Cola</h3>
                     <p>Refresco peruano icónico.</p>
                     <span>S/. 12.00</span>
                 </div>
-                <div class="menu-item" onclick="showPopup('Chicha Morada')">
+                <div class="menu-item">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjCpi7Hwq8OnEjKqTT70s6k8O9in-6j_j00KWxuIdQAlLyGGJFzHJU3CJ1CwVo_5qpK6M&usqp=CAU" alt="Chicha Morada 3L">
                     <h3>3L Chicha Morada</h3>
                     <p>Bebida tradicional peruana de maíz morado.</p>
                     <span>S/. 10.00</span>
                 </div>
-                <!-- Parrillas -->
-                <div class="menu-item" onclick="showPopup('Parrilla para 4')">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyj0Oq1QLrN4vKukf6o0w36Zkt5ziv2wL8eQ&s" alt="Parrilla para 4">
-                    <h3>Parrilla para 4</h3>
-                    <p>Ideal para reuniones pequeñas.</p>
-                    <span>S/. 100.00</span>
-                </div>
-                <div class="menu-item" onclick="showPopup('Parrilla para 6')">
-                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/e9/93/05/el-tiempo-me-enseno.jpg" alt="Parrilla para 6">
-                    <h3>Parrilla para 6</h3>
-                    <p>Perfecta para celebraciones familiares.</p>
-                    <span>S/. 130.00</span>
-                </div>
-                <!-- Anticuchos -->
-                <div class="menu-item" onclick="showPopup('Anticuchos')">
-                    <img src="https://canalcocina.es/medias/images/1610SaborPeruAnticuchosPollo1.jpg" alt="Anticuchos">
-                    <h3>Anticuchos</h3>
-                    <p>Brochetas de corazón de res marinadas.</p>
-                    <span>S/. 15.00</span>
-                </div>
             </div>
         </div>
     </div>
 
+    <!-- Promociones -->
     <div id="promociones">
         <div class="content promotions">
             <h2>Promociones Exclusivas</h2>
@@ -367,42 +294,10 @@
         </div>
     </div>
 
-    <div id="contacto">
-        <div class="content">
-            <h2>Contacto</h2>
-            <p>Realiza tu pedido llamando al <strong>+51 924912130</strong>.</p>
-            <p>Delivery gratis a todo Lima.</p>
-        </div>
-    </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Ochenta Brasas. Todos los derechos reservados.</p>
+    </footer>
 
-    <!-- Popup -->
-    <div id="popup" class="popup">
-        <button class="close-btn" onclick="closePopup()">X</button>
-        <h3 id="popup-title"></h3>
-        <p id="popup-description"></p>
-    </div>
-
-    <!-- Botón flotante de WhatsApp -->
-    <a href="https://wa.me/+51924912130?text=Hola,%20quiero%20realizar%20un%20pedido" target="_blank" class="whatsapp-button">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-    </a>
-
-    <script>
-        function showPopup(item) {
-            const popup = document.getElementById('popup');
-            const title = document.getElementById('popup-title');
-            const description = document.getElementById('popup-description');
-
-            if (item === 'Pollo Entero') {
-                title.textContent = 'Pollo a la Brasa Entero';
-                description.textContent = 'Jugoso pollo marinado con especias peruanas. Ideal para compartir en familia.';
-            } else if (item === '1/2 Pollo') {
-                title.textContent = '1/2 Pollo a la Brasa';
-                description.textContent = 'Medio pollo jugoso y delicioso. Perfecto para dos personas.';
-            } else if (item === '1/4 Pollo') {
-                title.textContent = '1/4 Pollo a la Brasa';
-                description.textContent = 'Cuarto de pollo perfecto para una persona. Sabor inigualable.';
-            } else if (item === 'Alitas') {
-                title.textContent = '6 Pack de Alitas a la Brasa';
-                description.textContent = 'Alitas crujientes y sabrosas. Perfectas para compartir.';
-            } else if (item === 'Chicken F
+</body>
+</html>
