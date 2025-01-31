@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sabores Andinos - El auténtico sabor peruano</title>
+    <title>Fuego y Pasión - El auténtico sabor peruano</title>
     <style>
         /* Estilos generales */
         body {
@@ -18,28 +18,46 @@
         header {
             background-color: #8B0000; /* Color vino */
             color: white;
-            padding: 20px 10px;
+            padding: 10px 10px; /* Más delgado */
             text-align: center;
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: 2em; /* Tamaño reducido */
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header h1::before {
+            content: '';
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Fire_Icon.svg/1200px-Fire_Icon.svg.png'); /* Icono de fuego */
+            background-size: cover;
+            margin-right: 10px;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 0.9em; /* Slogan más pequeño */
         }
 
         /* Navegación */
         nav {
             background-color: #8B0000; /* Color vino */
-            padding: 10px;
+            padding: 5px; /* Más delgada */
             text-align: center;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.1em;
+            margin: 0 10px;
+            font-size: 0.9em; /* Tamaño reducido */
         }
 
         nav a:hover {
@@ -51,7 +69,7 @@
             background-image: url('https://perubicentenario.com/wp-content/uploads/2021/06/31-1024x594.png'); /* Imagen de fondo */
             background-size: cover;
             background-position: center;
-            height: 400px;
+            height: 300px; /* Altura reducida */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -60,25 +78,12 @@
             background-attachment: fixed; /* Efecto paralaje */
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(51, 51, 51, 0.7); /* Fondo semi-oscuro */
-        }
-
         .hero h2 {
-            font-size: 3em;
+            font-size: 2.5em; /* Tamaño reducido */
             font-weight: bold;
             color: white;
             z-index: 1;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-            background-color: rgba(139, 0, 0, 0.8); /* Color vino semi-transparente */
-            padding: 5px 15px; /* Rectángulo más delgado */
-            border-radius: 5px;
         }
 
         /* Contenido principal */
@@ -191,7 +196,7 @@
             background-color: #8B0000; /* Color vino */
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 10px; /* Más delgado */
             margin-top: 20px;
         }
 
@@ -205,23 +210,38 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #25D366; /* Verde de WhatsApp */
+            background-color: #8B0000; /* Color vino */
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 1em;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%; /* Circular */
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
         .whatsapp-button img {
-            width: 20px;
-            height: 20px;
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            .hero h2 {
+                font-size: 1.8em;
+            }
+
+            nav a {
+                font-size: 0.8em;
+            }
         }
     </style>
 </head>
@@ -229,7 +249,7 @@
 
     <!-- Header -->
     <header>
-        <h1>Sabores Andinos</h1>
+        <h1>Fuego y Pasión</h1>
         <p>El auténtico sabor peruano en tu paladar</p>
     </header>
 
@@ -244,7 +264,7 @@
     <!-- Contenido de las secciones -->
     <div id="inicio">
         <section class="hero">
-            <h2>Sabores Andinos: Tradición y Sabor</h2>
+            <h2>Fuego y Pasión: Tradición y Sabor</h2>
         </section>
     </div>
 
@@ -254,65 +274,65 @@
             <div class="menu-section">
                 <!-- Pollo a la brasa -->
                 <div class="menu-item" onclick="showPopup('Pollo Entero')">
-                    <img src="https://via.placeholder.com/300x150" alt="Pollo Entero">
+                    <img src="https://imgmedia.buenazo.pe/1200x660/buenazo/original/2023/07/14/64ac3e8c599470217672a906.jpg" alt="Pollo Entero">
                     <h3>Pollo a la Brasa Entero</h3>
                     <p>Jugoso pollo marinado con especias peruanas.</p>
                     <span>S/. 45.00</span>
                 </div>
                 <div class="menu-item" onclick="showPopup('1/2 Pollo')">
-                    <img src="https://via.placeholder.com/300x150" alt="1/2 Pollo">
+                    <img src="https://carbonylena.net/wp-content/uploads/2021/01/POLLO-A-LA-BRASA-CON-PAPAS1-2.png" alt="1/2 Pollo">
                     <h3>1/2 Pollo a la Brasa</h3>
                     <p>Medio pollo jugoso y delicioso.</p>
                     <span>S/. 25.00</span>
                 </div>
                 <div class="menu-item" onclick="showPopup('1/4 Pollo')">
-                    <img src="https://via.placeholder.com/300x150" alt="1/4 Pollo">
+                    <img src="https://rikotonchicken.pe/wp-content/uploads/2022/10/015.png" alt="1/4 Pollo">
                     <h3>1/4 Pollo a la Brasa</h3>
                     <p>Cuarto de pollo perfecto para una persona.</p>
                     <span>S/. 15.00</span>
                 </div>
                 <!-- Alitas y Chicken Fingers -->
                 <div class="menu-item" onclick="showPopup('Alitas')">
-                    <img src="https://via.placeholder.com/300x150" alt="6 Pack Alitas">
+                    <img src="https://i.ytimg.com/vi/_zMlTQ4eEjc/maxresdefault.jpg" alt="6 Pack Alitas">
                     <h3>6 Pack de Alitas a la Brasa</h3>
                     <p>Alitas crujientes y sabrosas.</p>
                     <span>S/. 22.00</span>
                 </div>
                 <div class="menu-item" onclick="showPopup('Chicken Fingers')">
-                    <img src="https://via.placeholder.com/300x150" alt="Chicken Fingers">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7LhoBRmQ9cRlPcBqmcEcCNQvfUoJy9p79bQ&s" alt="Chicken Fingers">
                     <h3>6 Pack Chicken Fingers</h3>
                     <p>Tiras de pollo empanizadas y doradas.</p>
                     <span>S/. 20.00</span>
                 </div>
                 <!-- Bebidas -->
                 <div class="menu-item" onclick="showPopup('Inka Cola')">
-                    <img src="https://via.placeholder.com/300x150" alt="Inka Cola 3L">
+                    <img src="https://static.wixstatic.com/media/43aac5_c045faa5a9ab4e8d89eefb23d6408c19~mv2.png/v1/fit/w_500,h_500,q_90/file.png" alt="Inka Cola 3L">
                     <h3>3L Inka Cola</h3>
                     <p>Refresco peruano icónico.</p>
                     <span>S/. 12.00</span>
                 </div>
                 <div class="menu-item" onclick="showPopup('Chicha Morada')">
-                    <img src="https://via.placeholder.com/300x150" alt="Chicha Morada 3L">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjCpi7Hwq8OnEjKqTT70s6k8O9in-6j_j00KWxuIdQAlLyGGJFzHJU3CJ1CwVo_5qpK6M&usqp=CAU" alt="Chicha Morada 3L">
                     <h3>3L Chicha Morada</h3>
                     <p>Bebida tradicional peruana de maíz morado.</p>
                     <span>S/. 10.00</span>
                 </div>
                 <!-- Parrillas -->
                 <div class="menu-item" onclick="showPopup('Parrilla para 4')">
-                    <img src="https://via.placeholder.com/300x150" alt="Parrilla para 4">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyj0Oq1QLrN4vKukf6o0w36Zkt5ziv2wL8eQ&s" alt="Parrilla para 4">
                     <h3>Parrilla para 4</h3>
                     <p>Ideal para reuniones pequeñas.</p>
                     <span>S/. 60.00</span>
                 </div>
                 <div class="menu-item" onclick="showPopup('Parrilla para 6')">
-                    <img src="https://via.placeholder.com/300x150" alt="Parrilla para 6">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/e9/93/05/el-tiempo-me-enseno.jpg" alt="Parrilla para 6">
                     <h3>Parrilla para 6</h3>
                     <p>Perfecta para celebraciones familiares.</p>
                     <span>S/. 85.00</span>
                 </div>
                 <!-- Anticuchos -->
                 <div class="menu-item" onclick="showPopup('Anticuchos')">
-                    <img src="https://via.placeholder.com/300x150" alt="Anticuchos">
+                    <img src="https://canalcocina.es/medias/images/1610SaborPeruAnticuchosPollo1.jpg" alt="Anticuchos">
                     <h3>Anticuchos</h3>
                     <p>Brochetas de corazón de res marinadas.</p>
                     <span>S/. 20.00</span>
@@ -355,7 +375,6 @@
     <!-- Botón flotante de WhatsApp -->
     <a href="https://wa.me/+51924912130?text=Hola,%20quiero%20realizar%20un%20pedido" target="_blank" class="whatsapp-button">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-        Pedir por WhatsApp
     </a>
 
     <script>
@@ -386,3 +405,29 @@
                 title.textContent = '3L Chicha Morada';
                 description.textContent = 'Bebida tradicional peruana de maíz morado. Fresca y deliciosa.';
             } else if (item === 'Parrilla para 4') {
+                title.textContent = 'Parrilla para 4';
+                description.textContent = 'Ideal para reuniones pequeñas. Incluye carnes, papas y ensalada.';
+            } else if (item === 'Parrilla para 6') {
+                title.textContent = 'Parrilla para 6';
+                description.textContent = 'Perfecta para celebraciones familiares. Variedad de carnes y guarniciones.';
+            } else if (item === 'Anticuchos') {
+                title.textContent = 'Anticuchos';
+                description.textContent = 'Brochetas de corazón de res marinadas. Tradición peruana en cada bocado.';
+            }
+
+            popup.classList.add('active');
+        }
+
+        function closePopup() {
+            const popup = document.getElementById('popup');
+            popup.classList.remove('active');
+        }
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Fuego y Pasión. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
