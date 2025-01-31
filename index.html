@@ -9,46 +9,52 @@
         body {
             margin: 0;
             font-family: 'Arial', sans-serif;
-            background-color: #222; /* Fondo oscuro */
+            background-color: #111; /* Fondo oscuro */
             color: white;
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Cursor personalizado (efecto de brasas) */
-        body {
-            cursor: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Fire_Icon.svg/1200px-Fire_Icon.svg.png'), auto;
-        }
-
-        /* Header */
-        header {
-            background-color: #111;
-            color: white;
-            padding: 10px;
-            text-align: center;
+        /* Pantalla de carga */
+        .loading-screen {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        header h1 {
-            font-size: 1.5em;
-            margin: 0;
+            height: 100%;
+            background: black;
             display: flex;
             align-items: center;
             justify-content: center;
+            z-index: 9999;
+            animation: fadeOut 3s forwards;
         }
 
-        header h1::before {
-            content: '';
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Fire_Icon.svg/1200px-Fire_Icon.svg.png');
-            background-size: cover;
-            margin-right: 10px;
+        .loading-screen h1 {
+            font-size: 2em;
+            text-shadow: 0 0 10px orange, 0 0 20px red;
+            animation: fireEffect 2s infinite alternate;
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        @keyframes fireEffect {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.2);
+                opacity: 0.8;
+            }
         }
 
         /* Hero principal */
@@ -100,11 +106,31 @@
             border-radius: 5px;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
         .cta-button:hover {
             transform: scale(1.1);
             box-shadow: 0 0 10px rgba(255, 165, 0, 0.8);
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 69, 0, 0.5);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+
+        .cta-button:hover::after {
+            width: 200px;
+            height: 200px;
         }
 
         /* Menú interactivo */
@@ -127,6 +153,7 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
+            position: relative;
         }
 
         .menu-item:hover {
@@ -178,22 +205,6 @@
             font-size: 0.9em;
         }
 
-        /* Animaciones adicionales */
-        @keyframes fireEffect {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1.2);
-                opacity: 0;
-            }
-        }
-
-        .fire-animation {
-            animation: fireEffect 2s infinite alternate;
-        }
-
         /* Responsive design */
         @media (max-width: 768px) {
             header h1 {
@@ -211,6 +222,11 @@
     </style>
 </head>
 <body>
+
+    <!-- Pantalla de carga -->
+    <div class="loading-screen">
+        <h1>🔥 Ochenta Brasas 🔥</h1>
+    </div>
 
     <!-- Header -->
     <header>
@@ -298,6 +314,26 @@
     <footer>
         <p>&copy; 2023 Ochenta Brasas. Todos los derechos reservados.</p>
     </footer>
+
+    <script>
+        // Eliminar pantalla de carga después de 3 segundos
+        setTimeout(() => {
+            document.querySelector('.loading-screen').style.display = 'none';
+        }, 3000);
+
+        // Efecto de fuego al mover el mouse
+        document.addEventListener('mousemove', (e) => {
+            const fireEffect = document.createElement('div');
+            fireEffect.classList.add('fire-effect');
+            fireEffect.style.left = `${e.clientX}px`;
+            fireEffect.style.top = `${e.clientY}px`;
+            document.body.appendChild(fireEffect);
+
+            setTimeout(() => {
+                fireEffect.remove();
+            }, 1000);
+        });
+    </script>
 
 </body>
 </html>
