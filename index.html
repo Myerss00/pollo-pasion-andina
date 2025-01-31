@@ -8,7 +8,7 @@
         /* Estilos generales */
         body {
             margin: 0;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Playfair Display', serif; /* Tipografía acogedora */
             background-color: #FAF0E6; /* Blanco perla */
             color: #333;
             line-height: 1.6;
@@ -76,6 +76,16 @@
             position: relative;
             overflow: hidden;
             background-attachment: fixed; /* Efecto paralaje */
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Fondo más opaco */
         }
 
         .hero h2 {
@@ -210,7 +220,7 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #8B0000; /* Color vino */
+            background-color: rgba(139, 0, 0, 0.7); /* Más transparente */
             color: white;
             border: none;
             width: 50px;
@@ -277,19 +287,19 @@
                     <img src="https://imgmedia.buenazo.pe/1200x660/buenazo/original/2023/07/14/64ac3e8c599470217672a906.jpg" alt="Pollo Entero">
                     <h3>Pollo a la Brasa Entero</h3>
                     <p>Jugoso pollo marinado con especias peruanas.</p>
-                    <span>S/. 45.00</span>
+                    <span>S/. 55.00</span>
                 </div>
                 <div class="menu-item" onclick="showPopup('1/2 Pollo')">
                     <img src="https://carbonylena.net/wp-content/uploads/2021/01/POLLO-A-LA-BRASA-CON-PAPAS1-2.png" alt="1/2 Pollo">
                     <h3>1/2 Pollo a la Brasa</h3>
                     <p>Medio pollo jugoso y delicioso.</p>
-                    <span>S/. 25.00</span>
+                    <span>S/. 35.00</span>
                 </div>
                 <div class="menu-item" onclick="showPopup('1/4 Pollo')">
                     <img src="https://rikotonchicken.pe/wp-content/uploads/2022/10/015.png" alt="1/4 Pollo">
                     <h3>1/4 Pollo a la Brasa</h3>
                     <p>Cuarto de pollo perfecto para una persona.</p>
-                    <span>S/. 15.00</span>
+                    <span>S/. 22.00</span>
                 </div>
                 <!-- Alitas y Chicken Fingers -->
                 <div class="menu-item" onclick="showPopup('Alitas')">
@@ -302,7 +312,7 @@
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7LhoBRmQ9cRlPcBqmcEcCNQvfUoJy9p79bQ&s" alt="Chicken Fingers">
                     <h3>6 Pack Chicken Fingers</h3>
                     <p>Tiras de pollo empanizadas y doradas.</p>
-                    <span>S/. 20.00</span>
+                    <span>S/. 22.00</span>
                 </div>
                 <!-- Bebidas -->
                 <div class="menu-item" onclick="showPopup('Inka Cola')">
@@ -322,20 +332,20 @@
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyj0Oq1QLrN4vKukf6o0w36Zkt5ziv2wL8eQ&s" alt="Parrilla para 4">
                     <h3>Parrilla para 4</h3>
                     <p>Ideal para reuniones pequeñas.</p>
-                    <span>S/. 60.00</span>
+                    <span>S/. 100.00</span>
                 </div>
                 <div class="menu-item" onclick="showPopup('Parrilla para 6')">
                     <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/e9/93/05/el-tiempo-me-enseno.jpg" alt="Parrilla para 6">
                     <h3>Parrilla para 6</h3>
                     <p>Perfecta para celebraciones familiares.</p>
-                    <span>S/. 85.00</span>
+                    <span>S/. 130.00</span>
                 </div>
                 <!-- Anticuchos -->
                 <div class="menu-item" onclick="showPopup('Anticuchos')">
                     <img src="https://canalcocina.es/medias/images/1610SaborPeruAnticuchosPollo1.jpg" alt="Anticuchos">
                     <h3>Anticuchos</h3>
                     <p>Brochetas de corazón de res marinadas.</p>
-                    <span>S/. 20.00</span>
+                    <span>S/. 15.00</span>
                 </div>
             </div>
         </div>
@@ -395,39 +405,4 @@
             } else if (item === 'Alitas') {
                 title.textContent = '6 Pack de Alitas a la Brasa';
                 description.textContent = 'Alitas crujientes y sabrosas. Perfectas para compartir.';
-            } else if (item === 'Chicken Fingers') {
-                title.textContent = '6 Pack Chicken Fingers';
-                description.textContent = 'Tiras de pollo empanizadas y doradas. Ideal como entrada.';
-            } else if (item === 'Inka Cola') {
-                title.textContent = '3L Inka Cola';
-                description.textContent = 'Refresco peruano icónico. Complemento perfecto para tu comida.';
-            } else if (item === 'Chicha Morada') {
-                title.textContent = '3L Chicha Morada';
-                description.textContent = 'Bebida tradicional peruana de maíz morado. Fresca y deliciosa.';
-            } else if (item === 'Parrilla para 4') {
-                title.textContent = 'Parrilla para 4';
-                description.textContent = 'Ideal para reuniones pequeñas. Incluye carnes, papas y ensalada.';
-            } else if (item === 'Parrilla para 6') {
-                title.textContent = 'Parrilla para 6';
-                description.textContent = 'Perfecta para celebraciones familiares. Variedad de carnes y guarniciones.';
-            } else if (item === 'Anticuchos') {
-                title.textContent = 'Anticuchos';
-                description.textContent = 'Brochetas de corazón de res marinadas. Tradición peruana en cada bocado.';
-            }
-
-            popup.classList.add('active');
-        }
-
-        function closePopup() {
-            const popup = document.getElementById('popup');
-            popup.classList.remove('active');
-        }
-    </script>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2023 Fuego y Pasión. Todos los derechos reservados.</p>
-    </footer>
-
-</body>
-</html>
+            } else if (item === 'Chicken F
