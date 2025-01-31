@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brasa Andina - El auténtico sabor peruano</title>
+    <title>Sabores Andinos - El auténtico sabor peruano</title>
     <style>
         /* Estilos generales */
         body {
@@ -56,6 +56,8 @@
             align-items: center;
             justify-content: center;
             position: relative;
+            overflow: hidden;
+            background-attachment: fixed; /* Efecto paralaje */
         }
 
         .hero::before {
@@ -74,6 +76,9 @@
             color: white;
             z-index: 1;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            background-color: rgba(139, 0, 0, 0.8); /* Color vino semi-transparente */
+            padding: 5px 15px; /* Rectángulo más delgado */
+            border-radius: 5px;
         }
 
         /* Contenido principal */
@@ -133,19 +138,26 @@
             z-index: 1000;
             color: #333;
             text-align: center;
+            max-width: 400px;
+            width: 90%;
         }
 
         .popup.active {
             display: block;
         }
 
-        .popup button {
+        .popup .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
             background-color: #8B0000; /* Color vino */
             color: white;
             border: none;
-            padding: 10px 20px;
-            margin-top: 10px;
+            padding: 5px 10px;
+            border-radius: 50%;
             cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
         }
 
         /* Promociones */
@@ -187,13 +199,37 @@
             margin: 0;
             font-size: 0.9em;
         }
+
+        /* Botón flotante de WhatsApp */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366; /* Verde de WhatsApp */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .whatsapp-button img {
+            width: 20px;
+            height: 20px;
+        }
     </style>
 </head>
 <body>
 
     <!-- Header -->
     <header>
-        <h1>Brasa Andina</h1>
+        <h1>Sabores Andinos</h1>
         <p>El auténtico sabor peruano en tu paladar</p>
     </header>
 
@@ -208,7 +244,7 @@
     <!-- Contenido de las secciones -->
     <div id="inicio">
         <section class="hero">
-            <h2>El auténtico sabor peruano en tu paladar</h2>
+            <h2>Sabores Andinos: Tradición y Sabor</h2>
         </section>
     </div>
 
@@ -311,10 +347,16 @@
 
     <!-- Popup -->
     <div id="popup" class="popup">
+        <button class="close-btn" onclick="closePopup()">X</button>
         <h3 id="popup-title"></h3>
         <p id="popup-description"></p>
-        <button onclick="closePopup()">Cerrar</button>
     </div>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/+51924912130?text=Hola,%20quiero%20realizar%20un%20pedido" target="_blank" class="whatsapp-button">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        Pedir por WhatsApp
+    </a>
 
     <script>
         function showPopup(item) {
@@ -344,29 +386,3 @@
                 title.textContent = '3L Chicha Morada';
                 description.textContent = 'Bebida tradicional peruana de maíz morado. Fresca y deliciosa.';
             } else if (item === 'Parrilla para 4') {
-                title.textContent = 'Parrilla para 4';
-                description.textContent = 'Ideal para reuniones pequeñas. Incluye carnes, papas y ensalada.';
-            } else if (item === 'Parrilla para 6') {
-                title.textContent = 'Parrilla para 6';
-                description.textContent = 'Perfecta para celebraciones familiares. Variedad de carnes y guarniciones.';
-            } else if (item === 'Anticuchos') {
-                title.textContent = 'Anticuchos';
-                description.textContent = 'Brochetas de corazón de res marinadas. Tradición peruana en cada bocado.';
-            }
-
-            popup.classList.add('active');
-        }
-
-        function closePopup() {
-            const popup = document.getElementById('popup');
-            popup.classList.remove('active');
-        }
-    </script>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2023 Brasa Andina. Todos los derechos reservados.</p>
-    </footer>
-
-</body>
-</html>
