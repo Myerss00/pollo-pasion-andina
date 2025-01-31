@@ -8,82 +8,76 @@
         /* Estilos generales */
         body {
             margin: 0;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Playfair Display', serif; /* Tipografía elegante */
             background-color: #111; /* Fondo oscuro */
             color: white;
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Pantalla de carga */
-        .loading-screen {
+        /* Video de fondo opaco */
+        .video-background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: black;
+            z-index: -1;
+            opacity: 0.5; /* Opacidad reducida */
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 1.8em;
+            margin: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 9999;
-            animation: fadeOut 3s forwards;
         }
 
-        .loading-screen h1 {
-            font-size: 2em;
-            text-shadow: 0 0 10px orange, 0 0 20px red;
-            animation: fireEffect 2s infinite alternate;
-        }
-
-        @keyframes fadeOut {
-            from {
-                opacity: 1;
-            }
-            to {
-                opacity: 0;
-                visibility: hidden;
-            }
-        }
-
-        @keyframes fireEffect {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1.2);
-                opacity: 0.8;
-            }
+        header h1::before {
+            content: '';
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Fire_Icon.svg/1200px-Fire_Icon.svg.png');
+            background-size: cover;
+            margin-right: 10px;
         }
 
         /* Hero principal */
         .hero {
-            background: url('https://i.pinimg.com/originals/7f/8f/9f/7f8f9f8f8f8f8f8f8f8f8f8f8f8f8f8f.jpg') no-repeat center center/cover;
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            text-align: center;
             position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
         }
 
         .hero h2 {
             font-size: 3em;
             font-weight: bold;
             color: white;
-            z-index: 1;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            text-shadow: 2px 2px 10px rgba(255, 69, 0, 0.8);
             animation: fadeIn 2s ease-in-out;
         }
 
@@ -140,7 +134,7 @@
             gap: 20px;
             justify-content: center;
             padding: 20px;
-            background: url('https://i.pinimg.com/originals/7f/8f/9f/7f8f9f8f8f8f8f8f8f8f8f8f8f8f8f8f.jpg') no-repeat center center/cover;
+            background-color: rgba(0, 0, 0, 0.7);
         }
 
         .menu-item {
@@ -168,9 +162,20 @@
             border-radius: 8px;
         }
 
+        .menu-item h3 {
+            font-size: 1.2em;
+            margin: 10px 0;
+            color: gold;
+        }
+
+        .menu-item p {
+            font-size: 0.9em;
+            color: #ccc;
+        }
+
         /* Promociones */
         .promotions {
-            background-color: #111;
+            background-color: rgba(0, 0, 0, 0.7);
             padding: 20px;
             text-align: center;
         }
@@ -193,7 +198,7 @@
 
         /* Footer */
         footer {
-            background-color: #111;
+            background-color: rgba(0, 0, 0, 0.7);
             color: white;
             text-align: center;
             padding: 10px;
@@ -203,6 +208,30 @@
         footer p {
             margin: 0;
             font-size: 0.9em;
+        }
+
+        /* Botón flotante de WhatsApp */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366; /* Verde de WhatsApp */
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%; /* Circular */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+        }
+
+        .whatsapp-button img {
+            width: 30px;
+            height: 30px;
         }
 
         /* Responsive design */
@@ -223,9 +252,11 @@
 </head>
 <body>
 
-    <!-- Pantalla de carga -->
-    <div class="loading-screen">
-        <h1>🔥 Ochenta Brasas 🔥</h1>
+    <!-- Video de fondo -->
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="https://www.shutterstock.com/shutterstock/videos/1109966349/preview/stock-footage-super-slow-motion-of-fire-isolated-on-black-background-abstract-flames-background-filmed-on-high.webm" type="video/webm">
+        </video>
     </div>
 
     <!-- Header -->
@@ -235,7 +266,7 @@
 
     <!-- Hero principal -->
     <section class="hero">
-        <h2 class="fire-animation">🔥 Ochenta grados de perfección 🔥</h2>
+        <h2>🔥 Ochenta grados de perfección 🔥</h2>
         <button class="cta-button">Haz tu pedido ahora</button>
     </section>
 
@@ -248,45 +279,45 @@
                 <div class="menu-item">
                     <img src="https://imgmedia.buenazo.pe/1200x660/buenazo/original/2023/07/14/64ac3e8c599470217672a906.jpg" alt="Pollo Entero">
                     <h3>Pollo a la Brasa Entero</h3>
-                    <p>Jugoso pollo marinado con especias peruanas.</p>
+                    <p>Jugoso pollo marinado con especias peruanas. Perfecto para compartir en familia.</p>
                     <span>S/. 55.00</span>
                 </div>
                 <div class="menu-item">
                     <img src="https://carbonylena.net/wp-content/uploads/2021/01/POLLO-A-LA-BRASA-CON-PAPAS1-2.png" alt="1/2 Pollo">
                     <h3>1/2 Pollo a la Brasa</h3>
-                    <p>Medio pollo jugoso y delicioso.</p>
+                    <p>Medio pollo jugoso y delicioso. Ideal para dos personas.</p>
                     <span>S/. 35.00</span>
                 </div>
                 <div class="menu-item">
                     <img src="https://rikotonchicken.pe/wp-content/uploads/2022/10/015.png" alt="1/4 Pollo">
                     <h3>1/4 Pollo a la Brasa</h3>
-                    <p>Cuarto de pollo perfecto para una persona.</p>
+                    <p>Cuarto de pollo perfecto para una persona. Sabor inigualable.</p>
                     <span>S/. 22.00</span>
                 </div>
                 <!-- Alitas y Chicken Fingers -->
                 <div class="menu-item">
                     <img src="https://i.ytimg.com/vi/_zMlTQ4eEjc/maxresdefault.jpg" alt="6 Pack Alitas">
                     <h3>6 Pack de Alitas a la Brasa</h3>
-                    <p>Alitas crujientes y sabrosas.</p>
+                    <p>Alitas crujientes y sabrosas. Perfectas para compartir.</p>
                     <span>S/. 22.00</span>
                 </div>
                 <div class="menu-item">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7LhoBRmQ9cRlPcBqmcEcCNQvfUoJy9p79bQ&s" alt="Chicken Fingers">
                     <h3>6 Pack Chicken Fingers</h3>
-                    <p>Tiras de pollo empanizadas y doradas.</p>
+                    <p>Tiras de pollo empanizadas y doradas. Ideal como entrada.</p>
                     <span>S/. 22.00</span>
                 </div>
                 <!-- Bebidas -->
                 <div class="menu-item">
                     <img src="https://static.wixstatic.com/media/43aac5_c045faa5a9ab4e8d89eefb23d6408c19~mv2.png/v1/fit/w_500,h_500,q_90/file.png" alt="Inka Cola 3L">
                     <h3>3L Inka Cola</h3>
-                    <p>Refresco peruano icónico.</p>
+                    <p>Refresco peruano icónico. Complemento perfecto para tu comida.</p>
                     <span>S/. 12.00</span>
                 </div>
                 <div class="menu-item">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjCpi7Hwq8OnEjKqTT70s6k8O9in-6j_j00KWxuIdQAlLyGGJFzHJU3CJ1CwVo_5qpK6M&usqp=CAU" alt="Chicha Morada 3L">
                     <h3>3L Chicha Morada</h3>
-                    <p>Bebida tradicional peruana de maíz morado.</p>
+                    <p>Bebida tradicional peruana de maíz morado. Fresca y deliciosa.</p>
                     <span>S/. 10.00</span>
                 </div>
             </div>
@@ -315,25 +346,10 @@
         <p>&copy; 2023 Ochenta Brasas. Todos los derechos reservados.</p>
     </footer>
 
-    <script>
-        // Eliminar pantalla de carga después de 3 segundos
-        setTimeout(() => {
-            document.querySelector('.loading-screen').style.display = 'none';
-        }, 3000);
-
-        // Efecto de fuego al mover el mouse
-        document.addEventListener('mousemove', (e) => {
-            const fireEffect = document.createElement('div');
-            fireEffect.classList.add('fire-effect');
-            fireEffect.style.left = `${e.clientX}px`;
-            fireEffect.style.top = `${e.clientY}px`;
-            document.body.appendChild(fireEffect);
-
-            setTimeout(() => {
-                fireEffect.remove();
-            }, 1000);
-        });
-    </script>
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/+51924912130?text=Hola,%20quiero%20realizar%20un%20pedido" target="_blank" class="whatsapp-button">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
 
 </body>
 </html>
